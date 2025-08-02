@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Web Page</title>
+        <style>
+        body, html {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+        background-color: #333;
+        overflow: hidden;
+        padding: 0;
+        }
+
+        .navbar a {
+        float: left;
+        color: white;
+        text-align: center;
+        padding: 10px 16px;
+        text-decoration: none;
+        font-size: 14px;
+        }
+
+        .main-container {
+        display: flex;
+        min-height: 80vh;
+        }
+
+        .sidebar {
+        width: 160px;
+        background-color: #f2f2f2;
+        padding: 15px;
+        box-sizing: border-box;
+        font-size: 14px;
+        }
+
+        .sidebar h3 {
+        margin-top: 20px;
+        font-size: 14px;
+        }
+
+        .sidebar a {
+            display: block;
+            color: #0000EE;
+            margin: 4px 0;
+        }
+
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: white;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 12px;
+        }
+
+            
+        </style>
+    </head>
+    <body>
+        <div class="navbar">
+  <a href="#">About Us</a>
+  <a href="#">Registration</a>
+  <a href="#">Login</a>
+  <a href="#">Events</a>
+  <a href="#">Contact Us</a>
+</div>
+
+<div class="main-container">
+  <div class="sidebar">
+    <h3>About Us</h3>
+    <a href="#">Our mission</a>
+    <a href="#">Our Team</a>
+    <a href="#">History</a>
+
+    <h3>Registration</h3>
+    <a href="#">Join as Member</a>
+    <a href="#">Volunteer Signup</a>
+    <a href="#">Newsletter</a>
+
+    <h3>Events</h3>
+    <a href="#">Upcoming Events</a>
+    <a href="#">Past Events</a>
+
+    <h3>Contact Us</h3>
+    <a href="#">Email</a>
+    <a href="#">Photo</a>
+    <a href="#">Location</a>
+  </div>
+
+  <div class="content">
+    <h2>Welcome to My Web Page</h2>
+    <p>This is the content area. You can add your HTML elements here.</p>
+  </div>
+</div>
+
+<div class="footer">
+  © 2025 Your Name or Institution. All rights reserved.
+</div>
+
+    </body>
+</html>

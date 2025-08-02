@@ -1,0 +1,117 @@
+
+
+<!-- this is task 2: create a valid HTML5 code that displays a table consisting of six columns. Additionally, 
+the table should include two rows of data-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Task 2</title>
+        <h2>The expected output for Task 2</h2>
+
+        <style>
+            table {
+            border-collapse: collapse;
+            border: 2px solid rgb(140 140 140);
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            }
+            
+            caption {
+            caption-side: bottom;
+            padding: 10px;
+            }
+
+            th,
+            td {
+            border: 1px solid rgba(160, 160, 160, 0.696);
+            padding: 8px 10px;
+            }
+
+            td:last-of-type {
+            text-align: center;
+            }
+
+            tfoot th {
+            text-align: right;
+            }
+
+            tfoot td {
+            font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+        <caption> Figure 2: The expected output for Task 2</caption>
+        <thead>
+            <tr>
+            <th scope="col">Member ID</th>
+            <th scope="col">Member Name</th>           
+            <th scope="col">Member FName</th>
+            <th scope="col">Registration Date</th>
+            <th scope="col">Due Date</th>           
+            <th scope="col">Details</th>
+            </tr>
+        </thead>
+        <tbody>
+    <tr>
+      <th scope="row">001</th>
+      <td>John</td>
+      <td>Smith</td>
+      <td>2025-05-10</td>
+      <td>2026-05-10</td>
+      <td>
+        <table>
+        <thead>
+            <tr>
+            <th scope="col">Event Attended</th>
+            <th scope="col">Payment Status</th>           
+            <th scope="col">Contact Info</th>
+            </tr>
+        </thead>
+        <tr>
+      <th scope="row">Annual Meetup 2024</th>
+      <td>Paid</td>
+      <td>JohnXXX@example.com</td>
+    </tr>
+    <tr>
+      <th scope="row">Workshop: Web Dev</th>
+      <td>Unpaid</td>
+      <td>+1 514-XXX-XXXX</td>
+    </tr>
+      </table></td>
+    </tr>
+    <tr>
+      <th scope="row">002</th>
+      <td>Emma</td>
+      <td>Henry</td>
+        <td>2025-07-01</td>
+        <td>2026-07-01</td>
+        <td>
+            <table>
+            <thead>
+            <tr>
+            <th scope="col">Event Attended</th>
+            <th scope="col">Payment Status</th>           
+            <th scope="col">Contact Info</th>
+            </tr>
+        </thead>
+        <tr>
+      <th scope="row">Leadership Summit</th>
+      <td>Paid</td>
+      <td>EmmaXXX@example.com</td>
+    </tr>
+    <tr>
+      <th scope="row">Community Clean-Up</th>
+      <td>Paid</td>
+      <td>+1 438-XXX-XXXX</td>
+    </tr>
+      </table>
+        </td>
+    </tr>
+    
+    </table>
+    </body>
+</html>

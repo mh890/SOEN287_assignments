@@ -1,0 +1,132 @@
+
+
+<!-- this is task 5: same as task4 but with css-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Club Membership Registration Form</title>
+        <style>
+            input[type="text"],input[type="email"],input[type="date"],
+            select{
+                width:100%;
+                padding: 8px;
+                box-sizing: border-box;
+            }
+            div {
+                text-wrap: auto;
+                height: auto;
+                padding: 20px;
+                margin: 1in;
+                background: turquoise;
+                text-align: left;
+                border-radius: 2px;
+            }
+            body{
+                background-color: blue;
+                color: black;
+                margin: 0;
+                padding: 0;
+                font-weight: 900;
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+            }
+            header{
+                text-align: center;
+            }
+            button.type{
+                color: white; 
+                font-size: small; 
+                width: 80px;
+            }
+    
+        </style>
+    </head>
+    <body>
+            <header>
+            <h2>Club Membership Registration Form</h2>
+            </header>
+        <br>
+        <form action="#" method="post">
+            <div> 
+        <label for="fname">First Name:</label><br>
+        <input type="text" id="fname" name="fname" required><br><br>
+
+         <label for="lname">Last Name:</label><br>
+        <input type="text" id="lname" name="lname" required><br><br>
+
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="dob"> Date of Birth: </label><br>
+        <input type="date" id="dob" name="dob" required><br><br>
+
+        <label for="gender">Gender:</label><br>
+        <input type="radio" id="male" name="gender" value="Male">Male <br>
+        <input type="radio" id="female" name="gender" value="Female">Female <br>
+        <input type="radio" id="other" name="gender" value="Other">Other<br><br>
+
+        <label for="membership">Membership Type:</label><br>
+        <input type="radio" name="membership" value="Regular">Regular <br>
+        <input type="radio" name="membership" value="Premium">Premium<br><br>
+
+        <label for="interest"> Select your Interests: </label><br>
+        <input type="checkbox" name="interest" value="Events"> Events <br>
+        <input type="checkbox" name="interest" value="Volunteering"> Volunteering <br>
+        <input type="checkbox" name="interest" value="Workshops"> Workshops <br> <br>
+        <label for="country">Country: </label>
+        <select name="country" id="country" >
+    <option value="AF">Afghanistan</option>
+    <option value="AX">Åland Islands</option>
+    <option value="AL">Albania</option>
+    <option value="DZ">Algeria</option>
+    <option value="AS">American Samoa</option>
+    <option value="AD">Andorra</option>
+    <option value="AO">Angola</option>
+    <option value="AI">Anguilla</option>
+    <option value="AQ">Antarctica</option>
+    <option value="AG">Antigua and Barbuda</option>
+    <option value="AR">Argentina</option>
+    <option value="AM">Armenia</option>
+    <option value="AW">Aruba</option>
+    <option value="AU">Australia</option>
+    <option value="AT">Austria</option>
+    <option value="AZ">Azerbaijan</option>
+    <option value="BS">Bahamas</option>
+    <option value="BH">Bahrain</option>
+    <option value="BD">Bangladesh</option>
+    <option value="BB">Barbados</option>
+    <option value="BY">Belarus</option>
+    <option value="BE">Belgium</option>
+    <option value="BZ">Belize</option>
+    <option value="BJ">Benin</option>
+    <option value="BM">Bermuda</option>
+    <option value="BT">Bhutan</option>
+    <option value="BO">Bolivia, Plurinational State of</option>
+    <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+    <option value="BA">Bosnia and Herzegovina</option>
+    <option value="BW">Botswana</option>
+    <option value="BV">Bouvet Island</option>
+    <option value="BR">Brazil</option>
+    <option value="IO">British Indian Ocean Territory</option>
+    <option value="BN">Brunei Darussalam</option>
+    <option value="BG">Bulgaria</option>
+    <option value="BF">Burkina Faso</option>
+    <option value="BI">Burundi</option>
+    <option value="KH">Cambodia</option>
+    <option value="CM">Cameroon</option>
+    <option value="CA">Canada</option>
+    <!-- i didnt include the other countries following canada-->
+    </select><br><br>
+
+    <label> <input type="checkbox" name="terms" required/> I agree to the terms and conditions </label>
+    <br><br>   
+    <button type="submit" style="background-color: blue; color: white; width:120px;">Register</button>
+    <button type="reset" style="background-color: red; color: white; width:120px;"> Clear Form</button>
+    <br>   
+</div>
+
+</form>
+ 
+</body>
+</html>
