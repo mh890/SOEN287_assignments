@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Task 2 Assignment 2</title>
+    </head>
+    <body>
+        <form action="" method="get">
+            <label for="username">Username: </label>
+            <input type="text" name="username" id="username"required>
+            <br><br>
+            <label for="password"> Password:</label>
+            <input type="password" name="password" id="password" required>
+            <br><br>
+            <label for="password"> Repeat Password: </label>
+            <input type="password" name="repeat_password" id="repeat_password" required>
+            <br><br>
+            <label for="email"> Email: </label>
+            <input type="email" name="email" id="email" required>
+            <br><br>
+            <label for="phone">Phone Number: </label>
+            <input type="tel" name="phone" id="phone" required>
+            <br><br>
+            <button type="submit"> Sign Up </button>
+
+        </form>
+
+        <script>
+            const password = document.getElementById("password").value;
+            const repeatPassword = document.getElementById("repeat_password").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+
+
+     // Password, i used regex since its the easiest way to do this
+      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%]).{9,}$/;
+
+      // Email
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      // Phone
+      const phoneRegex = /^(\d{3}-\d{3}-\d{4}|\(\d{3}\)\s\d{3}-\d{4}|\d{3}\s\d{3}\s\d{4})$/;
+
+      // Password validation
+      if (!passwordRegex.test(password)) {
+        alert("Invalid password.\nPassword must be at least 9 characters long and include:\n- One lowercase letter\n- One uppercase letter\n- One number\n- One special character (!, @, #, $, %)");
+        event.preventDefault();
+        return false;
+      }
+
+      // Repeat password check
+      if (password !== repeatPassword) {
+        alert("Passwords do not match.");
+        event.preventDefault();
+        return false;
+      }
+
+      // Email validation
+      if (!emailRegex.test(email)) {
+        alert("Please enter a valid email address");
+        event.preventDefault();
+        return false;
+      }
+
+      // Phone validation
+      if (!phoneRegex.test(phone)) {
+        alert("Please enter a valid phone number in one of these formats:\n- 123-456-7890\n- (123) 456-7890\n- 123 456 7890");
+        event.preventDefault();
+        return false;
+      }
+
+    window.onload = function () {
+      document.querySelector("form").addEventListener("submit", validateForm);
+    };
+        </script>
+    </body>
+</html>

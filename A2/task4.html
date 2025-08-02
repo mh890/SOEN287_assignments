@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task 4 Assignment 2</title>
+  <style>
+    .section {
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin: 20px;
+    }
+    .error {
+      color: red;
+      margin-top: 5px;
+    }
+    textarea {
+      width: 200px; 
+      height: 100px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Administration Page</h2>
+
+  <div class="section">
+    <h3>Manage Countries</h3>
+    <div id="countryOptions">
+      <label><input type="checkbox" value="Canada"> Canada</label>
+      <label><input type="checkbox" value="Brazil"> Brazil</label>
+      <label><input type="checkbox" value="USA"> USA</label>
+      <label><input type="checkbox" value="Australia"> Australia</label>
+      <label><input type="checkbox" value="UK"> UK</label>
+      <label><input type="checkbox" value="Germany"> Germany</label>
+      <label><input type="checkbox" value="France"> France</label>
+      <label><input type="checkbox" value="Italy"> Italy</label>
+      <label><input type="checkbox" value="India"> India</label>
+      <label><input type="checkbox" value="Japan"> Japan</label>
+    </div><br>
+
+    <button onclick="addItems('country')">Add</button>
+    <button onclick="removeItems('country')">Remove</button>
+
+    <p class="error" id="countryError"></p>
+
+    <h4>Country Dropdown Preview:</h4>
+    <textarea id="countryDropdown" readonly></textarea>
+  </div>
+
+  <div class="section">
+    <h3>Manage Interests</h3>
+    <div id="interestOptions">
+      <label><input type="checkbox" value="Events"> Events</label>
+      <label><input type="checkbox" value="Volunteering"> Volunteering</label>
+      <label><input type="checkbox" value="Workshops"> Workshops</label>
+      <label><input type="checkbox" value="Networking"> Networking</label>
+      <label><input type="checkbox" value="Gaming"> Gaming</label>
+      <label><input type="checkbox" value="Sports"> Sports</label>
+      <label><input type="checkbox" value="Arts"> Arts</label>
+      <label><input type="checkbox" value="Music"> Music</label>
+      <label><input type="checkbox" value="Tech"> Tech</label>
+      <label><input type="checkbox" value="Reading"> Reading</label>
+    </div><br>
+
+    <button onclick="addItems('interest')">Add</button>
+    <button onclick="removeItems('interest')">Remove</button>
+
+    <p class="error" id="interestError"></p>
+
+    <h4>Interests Dropdown Preview:</h4>
+    <textarea id="interestDropdown" readonly></textarea>
+  </div>
+
+  <script>
+    function addItems(type) {
+      const optionsDiv = document.getElementById(`${type}Options`);
+      const dropdown = document.getElementById(`${type}Dropdown`);
+      const errorMsg = document.getElementById(`${type}Error`);
+      errorMsg.textContent = "";
+
+      const checkboxes = optionsDiv.querySelectorAll("input[type=checkbox]:checked");
+      const currentItems = dropdown.value.split("\n").filter(Boolean);
+      const duplicates = [];
+
+      checkboxes.forEach(cb => {
+        if (!currentItems.includes(cb.value)) {
+          currentItems.push(cb.value);
+        } else {
+          duplicates.push(cb.value);
+        }
+      });
+
+      if (duplicates.length > 0) {
+        errorMsg.textContent = `These already exist: ${duplicates.join(", ")}`;
+      }
+
+      dropdown.value = currentItems.join("\n");
+
+      checkboxes.forEach(cb => cb.checked = false);
+    }
+
+    function removeItems(type) {
+  const optionsDiv = document.getElementById(`${type}Options`);
+  const dropdown = document.getElementById(`${type}Dropdown`);
+  const checkboxes = optionsDiv.querySelectorAll("input[type=checkbox]:checked");
+  let currentItems = dropdown.value.split("\n").filter(Boolean);
+
+  checkboxes.forEach(cb => {
+    if (currentItems.includes(cb.value)) {
+      const confirmed = confirm(`Are you sure you want to remove "${cb.value}" from the ${type} list?`);
+      if (confirmed) {
+        currentItems = currentItems.filter(item => item !== cb.value);
+      }
+    }
+  });
+
+  dropdown.value = currentItems.join("\n");
+
+  checkboxes.forEach(cb => cb.checked = false);
+}
+
+  </script>
+
+</body>
+</html>

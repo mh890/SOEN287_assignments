@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Club Membership Registration Form</title>
+  
+  <style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h2>Task 3 Assignment 3</h2>
+  </header>
+
+  <form id="registrationForm">
+    <label for="fname"> First Name:</label><br>
+    <input type="text" id="fname" name="fname"><br><br>
+
+    <label for="lname">Last Name:</label><br>
+    <input type="text" id="lname" name="lname"><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email"><br><br>
+
+    <label for="dob"> Date of Birth: </label><br>
+    <input type="date" id="dob" name="dob"><br><br>
+
+    <label>Gender:</label><br>
+    <input type="radio" name="gender" value="Male">Male <br>
+    <input type="radio" name="gender" value="Female">Female <br>
+    <input type="radio" name="gender" value="Other">Other<br><br>
+
+    <label>Membership Type:</label><br>
+    <input type="radio" name="membership" value="Regular">Regular <br>
+    <input type="radio" name="membership" value="Premium">Premium<br><br>
+
+    <label>Select Your Interests:</label><br>
+    <input type="checkbox" name="interest" value="Events"> Events <br>
+    <input type="checkbox" name="interest" value="Volunteering"> Volunteering <br>
+    <input type="checkbox" name="interest" value="Workshops"> Workshops <br><br>
+
+    <label for="country">Country: </label>
+        <select name="country" id="country">
+    <option value="AF">Afghanistan</option>
+    <option value="AX">Åland Islands</option>
+    <option value="AL">Albania</option>
+    <option value="DZ">Algeria</option>
+    <option value="AS">American Samoa</option>
+    <option value="AD">Andorra</option>
+    <option value="AO">Angola</option>
+    <option value="AI">Anguilla</option>
+    <option value="AQ">Antarctica</option>
+    <option value="AG">Antigua and Barbuda</option>
+    <option value="AR">Argentina</option>
+    <option value="AM">Armenia</option>
+    <option value="AW">Aruba</option>
+    <option value="AU">Australia</option>
+    <option value="AT">Austria</option>
+    <option value="AZ">Azerbaijan</option>
+    <option value="BS">Bahamas</option>
+    <option value="BH">Bahrain</option>
+    <option value="BD">Bangladesh</option>
+    <option value="BB">Barbados</option>
+    <option value="BY">Belarus</option>
+    <option value="BE">Belgium</option>
+    <option value="BZ">Belize</option>
+    <option value="BJ">Benin</option>
+    <option value="BM">Bermuda</option>
+    <option value="BT">Bhutan</option>
+    <option value="BO">Bolivia, Plurinational State of</option>
+    <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+    <option value="BA">Bosnia and Herzegovina</option>
+    <option value="BW">Botswana</option>
+    <option value="BV">Bouvet Island</option>
+    <option value="BR">Brazil</option>
+    <option value="IO">British Indian Ocean Territory</option>
+    <option value="BN">Brunei Darussalam</option>
+    <option value="BG">Bulgaria</option>
+    <option value="BF">Burkina Faso</option>
+    <option value="BI">Burundi</option>
+    <option value="KH">Cambodia</option>
+    <option value="CM">Cameroon</option>
+    <option value="CA">Canada</option>
+    </select><br><br>
+
+    <input type="checkbox" id="terms" required> I agree to the terms and conditions<br><br>
+
+    <button type="submit">Register</button>
+    <button type="reset">Clear Form</button>
+  </form>
+
+  <hr>
+
+  <h3>Registered Members</h3>
+  <table id="membersTable">
+    <thead>
+      <tr>
+        <th>First Name</th><th>Last Name</th><th>Email</th><th>Date of Birth</th>
+        <th>Gender</th><th>Membership</th><th>Interests</th><th>Country</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- the entries will go here -->
+    </tbody>
+  </table>
+
+  <script>
+    document.getElementById("registrationForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const fname = document.getElementById("fname").value.trim();
+      const lname = document.getElementById("lname").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const dob = document.getElementById("dob").value;
+      const gender = document.querySelector('input[name="gender"]:checked')?.value || "";
+      const membership = document.querySelector('input[name="membership"]:checked')?.value || "";
+      const interests = Array.from(document.querySelectorAll('input[name="interest"]:checked'))
+                            .map(cb => cb.value).join(", ");
+      const country = document.getElementById("country").value;
+
+      // Validation
+      if (!fname || !lname || !email || !dob) {
+        alert("Please fill in all mandatory fields.");
+        return;
+      }
+
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+      }
+
+      // Adding to table
+      const table = document.getElementById("membersTable").getElementsByTagName('tbody')[0];
+      const row = table.insertRow();
+
+      row.innerHTML = `
+        <td>${fname}</td>
+        <td>${lname}</td>
+        <td>${email}</td>
+        <td>${dob}</td>
+        <td>${gender}</td>
+        <td>${membership}</td>
+        <td>${interests}</td>
+        <td>${country}</td>
+      `;
+    });
+  </script>
+
+</body>
+</html>
